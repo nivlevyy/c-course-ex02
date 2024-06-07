@@ -1,0 +1,14 @@
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\obj\Debug\UserInteface.csproj.AssemblyReference.cache
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\obj\Debug\UserInteface.csproj.CoreCompileInputs.cache
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\bin\Debug\UserInteface.dll.config
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\bin\Debug\UserInteface.dll
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\bin\Debug\UserInteface.pdb
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\obj\Debug\UserInteface.dll
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\obj\Debug\UserInteface.pdb
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\bin\Debug\UserInteface.dll.config
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\bin\Debug\UserInteface.dll
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\bin\Debug\UserInteface.pdb
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\obj\Debug\UserInteface.csproj.AssemblyReference.cache
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\obj\Debug\UserInteface.csproj.CoreCompileInputs.cache
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\obj\Debug\UserInteface.dll
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\UserInteface\obj\Debug\UserInteface.pdb

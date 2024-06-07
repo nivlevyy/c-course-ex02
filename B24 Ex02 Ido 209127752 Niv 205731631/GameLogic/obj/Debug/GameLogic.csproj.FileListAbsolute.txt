@@ -1,0 +1,4 @@
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.csproj.AssemblyReference.cache
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.csproj.CoreCompileInputs.cache
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.dll
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.pdb

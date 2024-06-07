@@ -1,0 +1,23 @@
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GamePlay.csproj.AssemblyReference.cache
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GamePlay.csproj.CoreCompileInputs.cache
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\GameLogic.dll.config
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\GameLogic.dll
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\GameLogic.pdb
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\UserInteface.dll
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\UserInteface.pdb
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\UserInteface.dll.config
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GamePlay.csproj.Up2Date
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.dll
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.pdb
+C:\C# program mta 2024\B24 Ex02 Ido 209127752 Niv 205731631\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\Ex02.ConsoleUtils.dll
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\GameLogic.dll.config
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\GameLogic.dll
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\GameLogic.pdb
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\UserInteface.dll
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\UserInteface.pdb
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\UserInteface.dll.config
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GamePlay.csproj.AssemblyReference.cache
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GamePlay.csproj.CoreCompileInputs.cache
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GamePlay.csproj.CopyComplete
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.dll
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.pdb

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex02", "Main\Ex02.csproj", "{A498D556-5A7D-4943-A334-E2A0DCB14E2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInteface", "UserInteface\UserInteface.csproj", "{56A4A3AD-95B7-44DA-AAB6-BA46B2AB2437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLogic", "GameLogic\GameLogic.csproj", "{6EE9EB34-9DAD-4755-AC7E-2161A2CA33A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A498D556-5A7D-4943-A334-E2A0DCB14E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A498D556-5A7D-4943-A334-E2A0DCB14E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A498D556-5A7D-4943-A334-E2A0DCB14E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A498D556-5A7D-4943-A334-E2A0DCB14E2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56A4A3AD-95B7-44DA-AAB6-BA46B2AB2437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A4A3AD-95B7-44DA-AAB6-BA46B2AB2437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A4A3AD-95B7-44DA-AAB6-BA46B2AB2437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A4A3AD-95B7-44DA-AAB6-BA46B2AB2437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EE9EB34-9DAD-4755-AC7E-2161A2CA33A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE9EB34-9DAD-4755-AC7E-2161A2CA33A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EE9EB34-9DAD-4755-AC7E-2161A2CA33A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EE9EB34-9DAD-4755-AC7E-2161A2CA33A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A03EB5F7-2E71-44A0-9927-1D86691254E0}
+	EndGlobalSection
+EndGlobal

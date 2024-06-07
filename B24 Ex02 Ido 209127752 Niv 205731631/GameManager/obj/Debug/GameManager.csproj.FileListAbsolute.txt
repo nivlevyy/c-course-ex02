@@ -1,0 +1,3 @@
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameManager\obj\Debug\GameManager.csproj.AssemblyReference.cache
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameManager\obj\Debug\GameManager.csproj.SuggestedBindingRedirects.cache
+C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\GameManager\obj\Debug\GameManager.csproj.CoreCompileInputs.cache
