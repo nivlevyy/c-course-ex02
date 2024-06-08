@@ -9,17 +9,17 @@ namespace GameLogic
 {
     internal struct Player
     {
-
+        public enum PlayerTurn { FIRST = 1, SECONDE = 2 };
         private uint m_Score;
         private readonly string r_Name;
         private bool iscomputer;
-        public enum player {FIRST=1,SECONDE=2 }; 
-
+        public uint playerturn;
         public Player(string i_NameOfUser, bool i_iscomputer)
         {
             r_Name = i_NameOfUser;
             iscomputer = i_iscomputer;
             m_Score = 0;
+            playerturn = (uint)PlayerTurn.FIRST;
         }
         public uint Score
         {
@@ -43,14 +43,7 @@ namespace GameLogic
         private readonly uint r_WidthOfBoard;
         internal Card[,] m_GameBoard;
 
-
-        //public Card this[uint row, uint col]//this happens after validity check always
-        //{
-        //    get { return m_GameBoard[row, col]; }
-        //    set { m_GameBoard[row, col].realObject = value; }
-        //}
-        //need to fix
-        public object GetReturnBoard(uint i, uint j)
+        public object GetReturnCardObject(uint i, uint j)
 
         { return m_GameBoard[i, j].RealObject; }
         public Card[,] GetBoard
@@ -65,26 +58,13 @@ namespace GameLogic
             get { return r_WidthOfBoard; }
         }
 
-        public Board(uint i_Height, uint i_Width, List<object> type)
+        public Board(uint i_Height, uint i_Width)
         {
-
             r_HeightOfBoard = i_Height;
             r_WidthOfBoard = i_Width;
             m_GameBoard = new Card[i_Height, i_Width];
-            InitializeBoard(type[0]);//mybe not nessesery
+           
         }
-        //private void InitializeBoard(object type)//mybe not nessesery
-        //{
-        //    for (uint i = 0; i < r_HeightOfBoard; ++i)
-        //    {
-        //        for (uint j = 0; j < r_WidthOfBoard; ++j)
-        //        {
-        //            m_GameBoard[i, j] = new Card(type,i,j);
-        //        }
-        //    }
-        //}
-        //stays in board
-
         public void RevealCard(uint row, uint col)
         {
             m_GameBoard[row, col].IsRevealed = true;
@@ -92,7 +72,7 @@ namespace GameLogic
 
         public void HideCard(uint row, uint col)
         {
-            m_GameBoard[row, col].isRevealed = false;
+            m_GameBoard[row, col].IsRevealed = false;
         }
 
         public bool IsRevealed(uint row, uint col)//getter for is reviled
@@ -109,38 +89,21 @@ namespace GameLogic
             return m_GameBoard[row, col].GetCard;
         }
 
-        //public void initallizeEmptyBoard() //no need cause working with objects it will be intilized with default of obj
-        //{
-
-        //    for (uint i = 0; i < r_HeightOfBoard; ++i)
-        //    {
-        //        for (uint j = 0; j < r_WidthOfBoard; ++j)
-        //        {
-
-        //            m_GameBoard[i, j] = ' ';
-
-        //        }
-
-        //    }
-        //}
-
-        //stays in board
-        private static Board fillBoardWithValues(uint i_height, uint i_width, List<object> source)
+        public Board fillBoardWithValues(uint i_height, uint i_width, List<object> source,ref LinkedList<Card> unreveildCardList)
         {
 
             uint numberOfObject = i_height * i_width / 2;
            // uint indexforcountobjects = numberOfObject;
-            Board fullBoard = new Board(i_height, i_width, source);
+            Board fullBoard = new Board(i_height, i_width);
 
             if (source.Count < numberOfObject)
             {
-                throw new ArgumentException("Not enough objects to fill the board");
+                throw new Exception("Not enough objects to fill the board");
             }
-
 
             List<object> allObjects = new List<object>();
 
-            foreach (var obj in source)
+            foreach (object obj in source)
             {
                 if (!(allObjects.Contains(obj)))
                 {
@@ -151,37 +114,13 @@ namespace GameLogic
            
             Random random = new Random();
 
-            //while (listOfObjects.Count > 0)
-            //{
-            //    int letterToGenerate = (int)random.Next('A', 'Z' + 1);
-            //    if (!listOfObjects.Contains(letterToGenerate))
-            //    {
-            //        listOfObjects.Add(letterToGenerate);
-            //    }
-            //}
-
             for (int i = allObjects.Count - 1; i > 0; --i)
             {
                 int j = random.Next(i + 1);
-                var temp = allObjects[i];
+                object temp = allObjects[i];
                 allObjects[i] = allObjects[j];
                 allObjects[j] = temp;
             }
-
-
-            //list<char> listofalltheletters = new list<char>();
-            //foreach (char letter in allobjects)
-            //{
-            //    listofalltheletters.add(letter);
-            //    listofalltheletters.add(letter);
-            //}
-            //for (int i = listofalltheletters.count - 1; i > 0; --i)
-            //{
-            //    int j = random.next(i + 1);
-            //    char temporarycharfromthelistofallletters = listofalltheletters[i];
-            //    listofalltheletters[i] = listofalltheletters[j];
-            //    listofalltheletters[j] = temporarycharfromthelistofallletters;
-            //}
 
             int index = 0;
             for (uint i = 0; i < i_height; ++i)
@@ -189,32 +128,25 @@ namespace GameLogic
                 for (uint j = 0; j < i_width; ++j)
                 {
                     fullBoard.m_GameBoard[i, j] = new Card(allObjects[index++],i,j);
-
+                    unreveildCardList.AddFirst(fullBoard.m_GameBoard[i, j]);
                 }
             }
             return fullBoard;
         }
         public bool IsCardsInBounderies(uint row1, uint col1)
         {
+            bool valid=true;
             if((row1 > Height  || col1 > Width))
             {
-                return false;
+                valid=!valid;
             }
-            return true;
+            return valid;
         }
         public bool isCardsEqual(uint row1, uint col1, uint row2, uint col2)
         {
             return m_GameBoard[row1, col1] == m_GameBoard[row2, col2];
         }
-
-
-
-
-
-
-
-
-
+        
         // this 4 function is only for coder ease not really nessesery
         public void ConsoleOutSingleCard(uint i_xCordinateInMatrix, uint i_yCordinateInMatrix)
         {
@@ -364,118 +296,47 @@ namespace GameLogic
    public class GameManager
     {
         internal Board gameBoard;
+        internal LinkedList<Card> unreaviledCards;
         internal Dictionary<object,Card> collectiveMemoryOfCards;
         internal List<Tuple<Card,Card>> listCoupleObjects;
         internal readonly uint numberOfPlayers;
         internal Player[] r_Players;
         internal static uint m_CurrentPlayerIndex;
-        
-
         public uint numOfPlayer
         {
             get { return numberOfPlayers; }
-        }
+        } //done
         public bool iscomputer
         {
             get { return r_Players[m_CurrentPlayerIndex].IsComputer; }
-        }
+        } //done
         public string playerName
         {
             get { return r_Players[m_CurrentPlayerIndex].Name; }
-        }
-
-
+        } //done
         public GameManager(uint boardhight, uint boardwidth, uint i_numberOfPlayers, ref List<object> objectsdata)
         {
             if ((boardhight * boardwidth) % 2 == 0)
             {
-                gameBoard = new Board(boardhight, boardwidth, objectsdata);
+                unreaviledCards = new LinkedList<Card>();
+                gameBoard = new Board(boardhight, boardwidth);
+                gameBoard.fillBoardWithValues(boardhight, boardwidth, objectsdata,ref unreaviledCards);
                 numberOfPlayers = i_numberOfPlayers;
-                r_Players = new Player[numberOfPlayers];
+                r_Players = new Player[numberOfPlayers];//names filled in ui
                 m_CurrentPlayerIndex = 0;
             }
             else
-                throw new ArgumentException("The product of height and width must be even.");
+                throw new Exception("The product of height and width must be even.");
             //check with guy if possible
             //if not delete
-            //all the
-            //if and the ui must support even product
-
+            //ui must support even product
         }
 
         public Board GetBoard
         {
             get { return gameBoard; }
-        }
-
-
-
-        //public Board gameBoard
-        //{
-        //    get { return m_GameBoard; }
-        //    set { m_GameBoard = value; }
-        //}
-        ///remember to add defults for number or chars something like below 
-        ///  char letterToGenerate = (char)random.Next('A', 'Z' + 1);
-        //       if (!listOfLetters.Contains(letterToGenerate))
-        //      {
-        //          listOfLetters.Add(letterToGenerate);
-        //    }
-
-        public bool SetUpGameboard(uint boardhight, uint boardwidth, List<object> objectsdata)
-        {
-            //here we needto get only the object list from user make the board with boards methods 
-            //here we setup only the board ,mybe get rid of num of players
-            //ADD all cards to unreveiledcards
-
-            bool playAnotherGame = true;
-
-            string nameOfPlayers = Console.ReadLine();
-
-            User[] usersOfTheGame = new User[i_NumberOfPlayers];
-            User user1 = new User(nameOfPlayers);///
-
-
-            if (i_GameMode.Equals("1"))
-            {
-                //Console.WriteLine("Please enter the name of the second player:");
-                //nameOfPlayers = Console.ReadLine();
-                //user2 = new UserInfo(nameOfPlayers);
-
-            }
-            else//playing vs computer TODO
-            {
-                user2 = new User("Computer");
-
-            }
-
-
-            SetGameBoard(ref memoryGame);
-
-            //need to change to maybe more players
-
-
-            if (!User.playGame(ref usersOfTheGame, ref memoryGame))//the actul game, a player didnt press Q; meaning the game is finished;
-            {
-                playAnotherGame = FinishGameAndDecideNext(ref user1, ref user2);
-
-            }
-            else
-            {
-                //game was terminated; not playing again;
-                playAnotherGame = !playAnotherGame;
-            }
-            return playAnotherGame;
-        }
-
-
-        public bool setupgameplayers(uint i_numberOfPlayers)
-        {
-            //here we add the players with their names
-
-            return true;
-        }
-        //here we get from ui sring the name and add this player
+        } //done
+   
         public void AddPlayer(string playerName, uint index, bool iscomputer)
         {
 
@@ -483,37 +344,22 @@ namespace GameLogic
             r_Players[index] = newPlayer;
         }
 
-        public bool MakeSingleMove(uint row1, uint col1)
-        {
-            //if(!gameBoard.IsCardsInBounderies(row1, col1))
-            //{
-            //    return false;
-            //}
-            //add to ui if its the same cards!!error messege
-
-            //think how to implement computer here or in another function if(r_Players[m_CurrentPlayerIndex].IsComputer)
-            //add if not in boundries 
-          
-                //MOVE TO HUMAN MOVE    
-                if (gameBoard.IsRevealed(row1, col1))//relevat to human
-                {
-                    return false;
-                }
-                else
-                {
-                    gameBoard.m_GameBoard[row1, col1].IsRevealed = true;
-                     collectiveMemoryOfCardsHandle(row1, col1);
-                }
-                //think more about logic
-                //the function for memory
-               
-                
-
-               
-            
+        public bool MakeSingleMove(uint row1, uint col1)//bool indicate that this move cant be done
+        {   
+            if (gameBoard.IsRevealed(row1, col1) || (!gameBoard.IsCardsInBounderies(row1, col1)))//relevat to human
+            {
+                return false;
+            }
+            else
+            {
+                gameBoard.RevealCard(row1, col1);
+                unreaviledCards.Remove(gameBoard.m_GameBoard[row1, col1]);
+                collectiveMemoryOfCardsHandle(row1, col1);
+                return true;
+            }
         }
        
-        public bool checkmakeMove(uint row1, uint col1, uint row2, uint col2)
+        public bool checkMakeMove(uint row1, uint col1, uint row2, uint col2)
         {
             if (gameBoard.isCardsEqual(row1, col1, row2, col2))//move for the two cards moves
             {
@@ -527,9 +373,8 @@ namespace GameLogic
             }
             else
             {
-
-                collectiveMemoryOfCards.Add(gameBoard.m_GameBoard[row1, col1].RealObject, gameBoard.GetCard(row1, col1));
-                collectiveMemoryOfCards.Add(gameBoard.m_GameBoard[row2, col2].RealObject, gameBoard.GetCard(row2, col2));
+                collectiveMemoryOfCardsHandle(row1, col1);
+                collectiveMemoryOfCardsHandle(row2, col2);
 
                 gameBoard.HideCard(row1, col1);
                 gameBoard.HideCard(row2, col2);
@@ -538,7 +383,7 @@ namespace GameLogic
                 return false;
             }
 
-        }
+        }//done
         private void collectiveMemoryOfCardsHandle(uint row,uint col)
         {
             object key = gameBoard.m_GameBoard[row, col].RealObject;
@@ -551,48 +396,93 @@ namespace GameLogic
                 listCoupleObjects.Add(Tuple.Create(collectiveMemoryOfCards[key],gameBoard.m_GameBoard[row, col]));
                 collectiveMemoryOfCards.Remove(key);
             }
-        }
+        }//done
         
         //think how to do it
-        public bool computerMakeMove()
+        public bool computerSingleMakeMove()
         {
-            if(listCoupleObjects.Count > 0)
+            bool isequal;
+            if (listCoupleObjects.Count > 0)
             {
-                listCoupleObjects[0].Item1.IsRevealed=true;
-                listCoupleObjects[0].Item2.IsRevealed = true;
-                r_Players[m_CurrentPlayerIndex].Score += 1;
-                listCoupleObjects.RemoveAt(0);
-                return true;
-            }
-            else if(collectiveMemoryOfCards.Count>0)
-            {
-                Card firstcard = collectiveMemoryOfCards.Values.First();  
-                MakeSingleMove(firstcard.getXCordinate,firstcard.getYCordinate);
-                Card secondcard =//random function that use unreveild cards
-                //MakeSingleMove(secondcard.getXCordinate,secondcard.getYCordinate);
+                if (!(r_Players[m_CurrentPlayerIndex].playerturn == (uint)Player.PlayerTurn.FIRST))
+                {
+                    listCoupleObjects[0].Item1.IsRevealed = true;
+                    r_Players[m_CurrentPlayerIndex].playerturn = (uint)Player.PlayerTurn.SECONDE;
 
-                 return checkmakeMove(firstcard.getXCordinate, firstcard.getYCordinate, secondcard.getXCordinate, secondcard.getYCordinate);
+                }
+                else
+                {
+                    listCoupleObjects[0].Item2.IsRevealed = true;
+                    r_Players[m_CurrentPlayerIndex].Score += 1;
+                    listCoupleObjects.RemoveAt(0);
+                    r_Players[m_CurrentPlayerIndex].playerturn = (uint)Player.PlayerTurn.FIRST;
+
+                }
+                isequal=true;
+            }
+            else if (collectiveMemoryOfCards.Count > 0)
+            {
+                Card firstcard = collectiveMemoryOfCards.Values.First();
+                if (!(r_Players[m_CurrentPlayerIndex].playerturn == (uint)Player.PlayerTurn.FIRST))
+                {
+                    isequal= MakeSingleMove(firstcard.getXCordinate, firstcard.getYCordinate);
+                    r_Players[m_CurrentPlayerIndex].playerturn = (uint)Player.PlayerTurn.SECONDE;         
+                }
+                else
+                {
+                    Card secondcard = PickRandomCard();//DO REAL RAND FROM UNREVIELD
+                    MakeSingleMove(secondcard.getXCordinate, secondcard.getYCordinate);
+                    isequal = checkMakeMove(firstcard.getXCordinate, firstcard.getYCordinate, secondcard.getXCordinate, secondcard.getYCordinate);   
+                   
+                    if (isequal)
+                    {
+                        collectiveMemoryOfCards.Remove(firstcard.RealObject); 
+                        
+                    }             
+                    unreaviledCards.Remove(secondcard);
+                }
             }
             else//make random choice function that use unreveild cards choose the first unrevield 
+                //still not random just  picking un folded card
             {
-                Card firstcard = //random function use unrevield
-               // MakeSingleMove(firstcard.getXCordinate, firstcard.getYCordinate);
-                Card secondcard =//random function that use unreveild cards
-                //MakeSingleMove(secondcard.getXCordinate,secondcard.getYCordinate);
-
-                return checkmakeMove(firstcard.getXCordinate, firstcard.getYCordinate, secondcard.getXCordinate, secondcard.getYCordinate);
-
+                Card firstcard = PickRandomCard();
+                if (!(r_Players[m_CurrentPlayerIndex].playerturn == (uint)Player.PlayerTurn.FIRST))
+                {
+                    isequal =MakeSingleMove(firstcard.getXCordinate, firstcard.getYCordinate);                   
+                }
+                else
+                {
+                    Card secondcard = PickRandomCard();
+                    MakeSingleMove(secondcard.getXCordinate, secondcard.getYCordinate);
+                    isequal = checkMakeMove(firstcard.getXCordinate, firstcard.getYCordinate, secondcard.getXCordinate, secondcard.getYCordinate);               
+                    if(isequal)
+                    {
+                        //add points to player
+                        unreaviledCards.Remove(firstcard);
+                        unreaviledCards.Remove(secondcard);
+                    }
+                }
             }
+            return isequal;
+        }//done
+        private Card PickRandomCard()
+        {
+            Random random = new Random();
+            int index = random.Next(unreaviledCards.Count);
+            LinkedListNode<Card> node = unreaviledCards.First;
 
-
-        }
-
+            for (int i = 0; i < index; i++)
+            {
+                node = node.Next;
+            }
+            return node.Value;
+        }//done
 
         private void NextTurn()
         {
 
             m_CurrentPlayerIndex = (m_CurrentPlayerIndex + 1) % numberOfPlayers;
-        }
+        } //DONE
 
         public bool IsGameOver()
         {
@@ -605,8 +495,8 @@ namespace GameLogic
             }
             return true;
 
-        }
-        public void WinnerOfTheGame(out string o_winnerName, out uint points)
+        }//DONE
+        public void WinnerOfTheGame(out string o_winnerName, out uint points)//done
         {
             Player winner = r_Players[0];
             foreach (Player player in r_Players)

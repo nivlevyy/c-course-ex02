@@ -19,7 +19,6 @@ namespace GameUi
         public static uint firstChoiceXCordinate, firstChoiceYCordinate;
         public static uint secondChoiceXCordinate, secondChoiceYCordinate;
 
-
         //UI METHODS
         public static void startGame()//continue this function
         {
@@ -40,27 +39,44 @@ namespace GameUi
             getBorderDimension(out boardheight, out boardwidth);
             numberofplayers = getPlayersNumber();
             GameManager newManager = new GameManager(boardheight, boardwidth, numberofplayers, ref abcList);//will not work untill unitilized abcList
-
             CreatePlayers(numberofplayers, ref newManager);
-
-
 
             while (!gameFinished)
             {
                 ConsoleOutBoard(newManager.GetBoard);
-                //press ____ to maake a move or Q to exit check method
+                //press ____ to maake a move or 
+                //print under every print screen pressQ to exit check method
 
+                //todo will inculde error messege exit function only if player took a valid choice
 
-                if (getPlayerChoiceTodo())//todo will inculde error messege exit function only if player took a valid choice
+                if (newManager.iscomputer)
                 {
-                    newManager.MakeMove(firstChoiceXCordinate, firstChoiceYCordinate, secondChoiceXCordinate, secondChoiceYCordinate);
-                    //add to make move the computer ai
-                    //add to the memory and all things  that need to add the manager
+                    newManager.computerSingleMakeMove();
+                    //print screen +  first card printing
+                    if (newManager.computerSingleMakeMove() == false) ;
+                    //print screen + seconde card printing
+                    //+"unlucky computer need to switch tactics"
                 }
+                else
+                {
+                    //PRINTSCREEN+name+print make 1st choice+if quit q
+                    userchoice = getChoiceFromInput();
+                    //convert user choose to cordinates func(userchoice,out firstChoiceXCordinate,out firstChoiceYCordinate)
+                    //how to cnvert it to two uint ??? need to choose for ui method to convert
+                    newManager.MakeSingleMove(firstChoiceXCordinate, firstChoiceYCordinate);
+                    //PRINTSCREEN+print make 2nd choice+if quit q
+                    userchoice = getChoiceFromInput();
+                    //convert user choose to cordinates func(userchoice,out secondeChoiceXCordinate,out secondeChoiceYCordinate)
+                    newManager.MakeSingleMove(secondeChoiceXCordinate, secondeChoiceYCordinate);
+                    //PRINTSCREEN+ //add if it was a couple or not + "make better choices next time"/"good job"
+                    // remember to put sleeps between every print screen
+
+                }
+
 
                 if (newManager.IsGameOver())
                 {
-                    newManager.WinnerOfTheGame(out winnerPlayerName,out winnerPlayerPoints);
+                    newManager.WinnerOfTheGame(out winnerPlayerName, out winnerPlayerPoints);
                     //print winner
                     //ask for another play will return true if we want to exit game or false to play again 
                     if (!gameFinished)
@@ -183,20 +199,24 @@ namespace GameUi
                     validInput = uint.TryParse(Console.ReadLine(), out rows);
 
                 }
-                if (rows >= hightLowerBoundry && rows <= hightUperBoundry && cols >= widthLowerBoundry && cols <= widthUperBoundry && (cols * rows % 2 == 0))
-                {
-                    validInput = !validInput;
-                }
-                else
+
+                if (!(rows >= hightLowerBoundry && rows <= hightUperBoundry && cols >= widthLowerBoundry && cols <= widthUperBoundry && (cols * rows % 2 == 0)))
                 {
                     Console.WriteLine(
                         "Invalid input, the total number of squares must be even, " +
                         $"and within the range of {hightLowerBoundry}x{widthLowerBoundry} " +
                         $"to {hightUperBoundry}x{widthUperBoundry}, try again: ");
                 }
+                else
+                {
+                    validInput = !validInput;
+                }
+
 
 
             }
+            o_rows = rows;
+            o_cols = cols;
 
         }
 
@@ -214,7 +234,7 @@ namespace GameUi
             // Screen.Clear();
             HashSet<string> mySet = new HashSet<string>();
 
-            for (int i = 1; i < numberOfPlayers; ++i)
+            for (uint i = 1; i < numberOfPlayers; ++i)
             {
                 //  Screen.Clear();
                 Console.WriteLine(
@@ -254,8 +274,8 @@ namespace GameUi
 
         }
 
-            public static void ConsoleOutBoard(Board gameBoard)//todo only the printing easy 
-            {
+        public static void ConsoleOutBoard(Board gameBoard)//todo only the printing easy 
+        {
             char[] columns = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
 
             // Print column headers
@@ -297,17 +317,11 @@ namespace GameUi
                 Console.Write("====");
             }
             Console.WriteLine();
-             }
-         
+        }
 
-    
+        //mybe add point
 
-       //mybe add point
-        public static bool getPlayerChoiceTodo()
-        {
-
-        }//todo
-        public static string getOneCardPlayerChoice(out uint x_cordinate ,out uint y_cordinate,GameManager gameManager)//todo
+        public static string getOneCardPlayerChoice(out uint x_cordinate, out uint y_cordinate, GameManager gameManager)//todo
         {
             string inputForGameMode;
 
