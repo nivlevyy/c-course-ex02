@@ -294,7 +294,11 @@ namespace GameLogic
     }
   
    public class GameManager
-    {
+    {//****************************************************************************************
+        //s
+        /// <summary>
+        /// just for see in git 
+        /// </summary>
         internal Board gameBoard;
         internal LinkedList<Card> unreaviledCards;
         internal Dictionary<object,Card> collectiveMemoryOfCards;
