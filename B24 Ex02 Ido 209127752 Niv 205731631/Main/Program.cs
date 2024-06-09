@@ -1,5 +1,5 @@
 ﻿using System;
-using GameLogic;
+using UserInterface;
 
 namespace Ex02
 {
@@ -7,12 +7,9 @@ namespace Ex02
     {
         static void Main()
         {
-           
-            //add gamemaager.start()
-
-            
-
+         
+             UI.startGame();  
+        
         }
-
     }
 }

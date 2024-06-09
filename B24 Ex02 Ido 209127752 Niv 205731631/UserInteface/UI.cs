@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Threading;
 using GameLogic;
+using GameLogic.Components;
 
-namespace GameUi
+namespace UserInterface
 {
-    public class UI
+    public struct UI
     {
         //add more enums
         private enum userChoicesMainMenu { Startgame = 1, Quit };
@@ -30,22 +31,23 @@ namespace GameUi
             uint winnerPlayerPoints;
             //add method that initilized with all abc to chars
             List<char> abcList = new List<char>();
-
+            
             ConsoleOutStartScreen();
-            Thread.Sleep(3000);
-
+            Thread.Sleep(6000);
+            
             ConsoleOutMainMenu();
             userchoice = getChoiceFromInput();
             getBorderDimension(out boardheight, out boardwidth);
             numberofplayers = getPlayersNumber();
-            GameManager newManager = new GameManager(boardheight, boardwidth, numberofplayers, ref abcList);//will not work untill unitilized abcList
+            GameManager newManager = new GameManager(boardheight, boardwidth, numberofplayers,GameManager.ConvertListToObjectList(abcList));//will not work untill unitilized abcList
+           
             CreatePlayers(numberofplayers, ref newManager);
 
             while (!gameFinished)
             {
-                ConsoleOutBoard(newManager.GetBoard);
+              //  ConsoleOutBoard(newManager.GetBoard);
                 //press ____ to maake a move or 
-                //print under every print screen pressQ to exit check method
+                //print under every print screen press Q to exit check method
 
                 //todo will inculde error messege exit function only if player took a valid choice
 
@@ -67,7 +69,8 @@ namespace GameUi
                     //PRINTSCREEN+print make 2nd choice+if quit q
                     userchoice = getChoiceFromInput();
                     //convert user choose to cordinates func(userchoice,out secondeChoiceXCordinate,out secondeChoiceYCordinate)
-                    newManager.MakeSingleMove(secondeChoiceXCordinate, secondeChoiceYCordinate);
+                  //  newManager.MakeSingleMove(secondeChoiceXCordinate, secondeChoiceYCordinate);
+                    //make a function that check if user valid choice
                     //PRINTSCREEN+ //add if it was a couple or not + "make better choices next time"/"good job"
                     // remember to put sleeps between every print screen
 
@@ -86,36 +89,36 @@ namespace GameUi
                 }
 
             }
-            //need to finish function
+           
         }
 
         //ConsoleOutStartScreen: prints to the console the game name in ascii art
-        private static void ConsoleOutStartScreen()
+        public static void ConsoleOutStartScreen()//change back to private after debug
         {
             Console.WriteLine("\r\n" +
                 " .----------------.  .----------------.  .-----------------.  .----------------.  .----------------.  .----------------. \r\n" +
-                "| .--------------. || .--------------. || .--------------.  || .--------------. || .--------------. || .--------------.|\r\n" +
-                "| | ____    _____| || |  __________  | || | ____    _____ | || |     ____     | || |  _______     | || |  ____   ____  | |\r\n" +
-                "| ||_   \\  /  _|| || | |_   ___   | | || ||_   \\  /  _| | || |   .'    `.   | || | |_   __ \\   | || | |_  _| |_  _| | |\r\n" +
-                "| |  |   \\/   | | || |   | |_  \\_| | || |  |   \\/   |  | || |  /  .--.  \\ | || |   | |__) |   | || |   \\\\  / /   | |\r\n" +
-                "| |  | |\\  /| | | || |   |  _|  __  | || |  | |\\  /| |  | || |  | |    | |  | || |   |  __ /    | || |    \\\\/ /    | |\r\n" +
-                "| | _| |_\\/_| |_| || |  _| |___/  | | || | _| |_\\/_| |_ | || |  \\ `--'  /  | || |  _| |  \\\\_ | || |    _|   |_    | |\r\n" +
-                "| ||_____| |_____| || | |__________| | || ||_____| |_____|| || |   `.____.'   | || | |____| |___| | || |   |_______|   | |\r\n" +
+                "| .--------------. || .--------------. || .--------------.  || .--------------. || .--------------. || .--------------.  |\r\n" +
+                "| | ____    ____ | || |  __________  | || | ____    ____  | || |     ____     | || |  _______     | || |  ____  ____   | |\r\n" +
+                "| ||_   \\  /   _|| || | |_   ___   | | || ||_   \\  /   _| | || |   .'    `.   | || | |_   __ \\    | || | |_  _||_  _|  | |\r\n" +
+                "| |  |   \\/   |  | || |   | |_  \\__| | || |  |   \\/   |   | || |  /  .--.  \\  | || |   | |__) |   | || |   \\\\    //    | |\r\n" +
+                "| |  | |\\  /| |  | || |   |  _|  __  | || |  | |\\  /| |   | || |  |  |  |  |  | || |   |  __ /    | || |    \\\\  //     | |\r\n" +
+                "| | _| |_\\/_| |_ | || |  _| |___/  | | || | _| |_\\/_| |_  | || |  \\  `--'  /  | || |  _| |  \\\\_   | || |   _|    |_    | |\r\n" +
+                "| ||_____| |____|| || | |__________| | || ||_____| |____| | || |   `.____.'   | || | |____| |___| | || |  |________|   | |\r\n" +
                 "| |              | || |              | || |               | || |              | || |              | || |               | |\r\n" +
-                "| '--------------' || '--------------' || '--------------'  || '--------------' || '--------------' || '---------------' |\r\n" +
+                "| '--------------' || '--------------' || '---------------' || '--------------' || '--------------' || '---------------' |\r\n" +
                 " '----------------'  '----------------'  '-----------------'  '----------------'  '----------------'  '-----------------' \r\n" +
                 " .----------------.  .----------------.  .-----------------.  .-----------------.  .----------------.                     \r\n" +
                 "| .--------------. || .--------------. || .---------------. || .---------------. || .--------------. |                    \r\n" +
-                "| |              | || |    _______   | || |      __       | || | ____    _____ | || |  __________  | |                    \r\n" +
-                "| |              | || |  .' ___   |  | || |     /  \\     | || ||_   \\  /   _|| || | |_   ___   | | |                    \r\n" +
-                "| |    ______    | || | / .'   \\_|  | || |    / /\\\\    | || |  |   \\/   |  | || |   | |_  \\_| | |                    \r\n" +
-                "| |   |______|   | || | | |    ____  | || |   / ____ \\   | || |  | |\\  /| |  | || |   |  _|  __  | |                    \r\n" +
-                "| |              | || | \\`.___] _|  | || | _/ /    \\\\_ | || | _| |_\\/_| |_ | || |  _| |___/  | | |                    \r\n" +
-                "| |              | || |  `._____.'   | || ||____|   |____|| || ||_____| |_____|| || | |__________| | |                    \r\n" +
+                "| |              | || |    _______   | || |       __      | || | ____    _____ | || |  __________  | |                    \r\n" +
+                "| |              | || |  .' ___   |  | || |      /  \\     | || ||_   \\  /   _| | || | |_   ___   | | |                    \r\n" +
+                "| |    ______    | || | / .'   \\ _|  | || |     / /\\ \\    | || |  |   \\/   |   | || |   | |_  \\__| | |                    \r\n" +
+                "| |   |______|   | || | | |    ____  | || |    / ____ \\   | || |  | |\\  /| |   | || |   |  _|  __  | |                    \r\n" +
+                "| |              | || | \\`.___]  _|  | || |  _/ /    \\ \\_ | || | _| |_\\/_| |_  | || |  _| |___/  | | |                    \r\n" +
+                "| |              | || |  `._____.'   | || | |____|  |____|| || ||_____| |_____|| || | |__________| | |                    \r\n" +
                 "| |              | || |              | || |               | || |               | || |              | |                    \r\n" +
                 "| '--------------' || '--------------' || '---------------' || '---------------' || '--------------' |                    \r\n" +
                 " '----------------'  '----------------'  '-----------------'  '-----------------'  '----------------'                     \r\n");
-
+            Thread.Sleep(6000);
         }
         ////ConsoleOutMainMenu:prints to the console th main menu of the game
         private static void ConsoleOutMainMenu()
@@ -171,10 +174,12 @@ namespace GameUi
 
         }
 
-        public static void getBorderDimension(out uint o_rows, out uint o_cols)//fix function for dimantions of board
+        public static void getBorderDimension(out uint o_rows, out uint o_cols)
         {
             bool validInput = false;
-            uint rows, cols;
+            string userInput;
+            uint rows = 0, cols = 0;
+
             Console.WriteLine(
                 $"To set up the Game board please select " +
                 $"the height and width within the range of " +
@@ -183,21 +188,28 @@ namespace GameUi
 
             while (!validInput)
             {
-                while (!validInput)
-                {
-                    Console.Write(
+                Console.Write(
                     $"Enter the number of rows" +
                     $" ({hightLowerBoundry}-{hightUperBoundry}): ");
-                    validInput = uint.TryParse(Console.ReadLine(), out rows);
-                }
-                validInput = !validInput;
-                while (!validInput)
-                {
-                    Console.Write(
-                    $"Enter the number of colmuns " +
-                    $"({widthLowerBoundry}-{widthUperBoundry}): ");
-                    validInput = uint.TryParse(Console.ReadLine(), out rows);
+                userInput = Console.ReadLine();
+                validInput = uint.TryParse(userInput, out rows);
 
+                if (!validInput)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                    continue;
+                }
+
+                Console.Write(
+                    $"Enter the number of columns " +
+                    $"({widthLowerBoundry}-{widthUperBoundry}): ");
+                userInput = Console.ReadLine();
+                validInput = uint.TryParse(userInput, out cols);
+
+                if (!validInput)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                    continue;
                 }
 
                 if (!(rows >= hightLowerBoundry && rows <= hightUperBoundry && cols >= widthLowerBoundry && cols <= widthUperBoundry && (cols * rows % 2 == 0)))
@@ -206,18 +218,12 @@ namespace GameUi
                         "Invalid input, the total number of squares must be even, " +
                         $"and within the range of {hightLowerBoundry}x{widthLowerBoundry} " +
                         $"to {hightUperBoundry}x{widthUperBoundry}, try again: ");
+                    validInput = false; // Reset validInput to continue the loop
                 }
-                else
-                {
-                    validInput = !validInput;
-                }
-
-
-
             }
+
             o_rows = rows;
             o_cols = cols;
-
         }
 
         public static string getusersnames()//done
@@ -227,7 +233,7 @@ namespace GameUi
 
             return playerName;
         }
-        private static void CreatePlayers(uint numberOfPlayers, ref GameManager gameManager)
+        private static void CreatePlayers(uint numberOfPlayers,ref GameManager gameManager)
         {
             string userChoice;
             string playerName;
@@ -265,18 +271,18 @@ namespace GameUi
             }
         }//done
 
-        public void createGameBoard(ref GameManager gameManager)//add dimentions)//need to be change for all letters in col and how to print board in ui 
+        public void createGameBoard( GameManager gameManager)//add dimentions)//need to be change for all letters in col and how to print board in ui 
         {
             uint rows, cols;
             getBorderDimension(out rows, out cols);
             //add list of all ABC to setup board
-            gameManager.SetUpGameboard(rows, cols,);
+          //  gameManager.SetUpGameboard(rows, cols,);
 
         }
 
-        public static void ConsoleOutBoard(Board gameBoard)//todo only the printing easy 
+        public static void ConsoleOutBoard(ref GameManager gameManager)//todo only the printing easy 
         {
-            char[] columns = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+            //char[] columns = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
 
             // Print column headers
             Console.Write("  ");
@@ -303,7 +309,7 @@ namespace GameUi
                 // Print the cards in the row
                 for (uint col = 0; col < gameBoard.Width; col++)
                 {
-                    Board.Card card = gameBoard[row, col];
+                    Card card = gameBoard.GetCard(row, col);
                     string cardContent = card.IsRevealed ? card.RealObject.ToString() : " ";
                     Console.Write($"| {cardContent} ");
                 }
@@ -328,22 +334,23 @@ namespace GameUi
             Console.WriteLine("please enter a card to flip ,notice to choose cards only from unfliped card or in board boundries");
             inputForGameMode = Console.ReadLine();
             //check if its intiger and within boundries 
-            if ()
-            {
+            //if ()
+            //{
 
 
-            }
+            //    //}
 
 
-            //make sure to take right input from the user 
+            //    //make sure to take right input from the user 
 
-            inputForGameMode = Console.ReadLine();
-            CheckIfValidInputForMenuChoices(ref inputForGameMode);
+            //    inputForGameMode = Console.ReadLine();
+            //  //  CheckIfValidInputForMenuChoices(ref inputForGameMode);
 
-            return inputForGameMode;
+            //    //  return inputForGameMode;
+            //    return inputForGameMode;
+            //}
         }
     }
-}
 
 
 
