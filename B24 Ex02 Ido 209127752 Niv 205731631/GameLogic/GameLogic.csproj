@@ -39,7 +39,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board.cs" />
+    <Compile Include="Card.cs" />
     <Compile Include="ManagerOfTheGame.cs" />
+    <Compile Include="Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

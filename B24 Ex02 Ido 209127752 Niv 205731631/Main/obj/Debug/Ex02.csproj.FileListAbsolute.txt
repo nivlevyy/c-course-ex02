@@ -29,3 +29,17 @@ C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\Main\obj
 C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\Main\obj\Debug\Ex02.csproj.CopyComplete
 C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\Main\obj\Debug\Main.exe
 C:\Users\idosc2\Desktop\New folder\B24 Ex02 Ido 209127752 Niv 205731631\Main\obj\Debug\Main.pdb
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\bin\Debug\Main.exe.config
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\bin\Debug\Main.exe
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\bin\Debug\Main.pdb
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\bin\Debug\UserInteface.dll
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\bin\Debug\GameLogic.dll
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\bin\Debug\UserInteface.pdb
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\bin\Debug\UserInteface.dll.config
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\bin\Debug\GameLogic.pdb
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\bin\Debug\GameLogic.dll.config
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\obj\Debug\Ex02.csproj.AssemblyReference.cache
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\obj\Debug\Ex02.csproj.CoreCompileInputs.cache
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\obj\Debug\Ex02.csproj.Up2Date
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\obj\Debug\Main.exe
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\Main\obj\Debug\Main.pdb

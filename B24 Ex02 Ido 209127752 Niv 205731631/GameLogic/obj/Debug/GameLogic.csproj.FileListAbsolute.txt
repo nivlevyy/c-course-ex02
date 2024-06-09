@@ -6,3 +6,10 @@ C:\Users\nafli\Desktop\New folder\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631
 C:\Users\nafli\Desktop\New folder\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.csproj.CoreCompileInputs.cache
 C:\Users\nafli\Desktop\New folder\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.dll
 C:\Users\nafli\Desktop\New folder\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.pdb
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\GameLogic.dll.config
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\GameLogic.dll
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\bin\Debug\GameLogic.pdb
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.csproj.AssemblyReference.cache
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.csproj.CoreCompileInputs.cache
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.dll
+C:\Users\nafli\Desktop\מדעי המחשב\שנה ב\סמסטר ב\c#\ex02 ver2\B24 Ex02 Ido 209127752 Niv 205731631\GameLogic\obj\Debug\GameLogic.pdb
